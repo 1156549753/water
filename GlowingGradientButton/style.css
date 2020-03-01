@@ -49,29 +49,7 @@ a:hover{
     }
 }
 
-a::before{
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    z-index: -1;
-    background:  linear-gradient(90deg, #03a9f4, #ff41a5, #ff3b3b, #03a9f4);
-    background-size: 400%;
-    border-radius: 40px;
-    /* filter: blur(20px); */
-    opacity: 0;
-    transition: 0.5s;
-}
-
-a:hover:before,a:active:before{
-    filter: blur(20px);
-    opacity: 1;
-    animation: animate 8s linear infinite;
-}
-
-a::before{
+/* a::before{
     content: '';
     position: absolute;
     top: -5px;
@@ -85,13 +63,14 @@ a::before{
     filter: blur(20px);
     opacity: 0;
     transition: 0.5s;
-}
+} */
 
-a:hover:before,a:active:before{
+/* a:hover:before,a:active:before{
     filter: blur(20px);
     opacity: 1;
     animation: animate 8s linear infinite;
-}
+} */
+
 
 
 audio{
