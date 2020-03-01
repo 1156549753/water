@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <a href="javascript:0;" onclick="play();">button</a>
+    <a class="at" href="javascript:0;" onclick="play();">button</a>
     <audio id="audio" autoplay loop>
         <source src="./muc.mp3" type="audio/mpeg">
     </audio>
@@ -16,6 +16,30 @@
 <script>
 function play(){
     document.getElementById("audio").play();
-    document.getElementById("audio").loop();
+}
+
+function isEquipment(){
+    let UA = navigator.userAgent,
+        isAndroid = /android|adr|linux/gi.test(UA),
+        isIOS = /iphone|ipod|ipad/gi.test(UA) && !isAndroid,
+        isBlackBerry = /BlackBerry/i.test(UA),
+        isWindowPhone = /IEMobile/i.test(UA),
+        isMobile = isAndroid || isIOS || isBlackBerry || isWindowPhone;
+    return{
+        isAndroid: isAndroid,
+        isIOS: isIOS,
+        isMobile: isMobile,
+        isWeixin: /MicroMessenger/gi.test(UA),
+        isQQ: /QQ/gi.test(UA),
+        isPC: !isMobile,
+        isWeibo: /WeiBo/gi.test(UA)
+    }
+}
+
+
+if(isEquipment().isMobile){    //是否是微信，QQ 微博环境             
+   let a =  document.getElementsByTagName("a") 
+   console.log(a)
+   a[0].classList.remove("at")
 }
 </script>
