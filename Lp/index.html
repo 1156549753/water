@@ -24,9 +24,7 @@
             </ul>
         </div>
     </button>
-    <audio id="audio" autoplay loop>
-        <source src="./yhc.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="audio" src="./yhc.mp3" autoplay loop></audio>
     <ul class="ff">
         <li></li>
         <li></li>
@@ -192,31 +190,19 @@
         return num;
     }
 
-    function isEquipment(){
-    let UA = navigator.userAgent,
-        isAndroid = /android|adr|linux/gi.test(UA),
-        isIOS = /iphone|ipod|ipad/gi.test(UA) && !isAndroid,
-        isBlackBerry = /BlackBerry/i.test(UA),
-        isWindowPhone = /IEMobile/i.test(UA),
-        isMobile = isAndroid || isIOS || isBlackBerry || isWindowPhone;
-    return{
-        isAndroid: isAndroid,
-        isIOS: isIOS,
-        isMobile: isMobile,
-        isWeixin: /MicroMessenger/gi.test(UA),
-        isQQ: /QQ/gi.test(UA),
-        isPC: !isMobile,
-        isWeibo: /WeiBo/gi.test(UA)
+
+</script>
+
+<script type="text/javascript">
+    function audioAutoPlay(id){
+        var audio = document.getElementById(id);
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+        document.addEventListener('YixinJSBridgeReady', function() {
+            audio.play();
+        }, false);
     }
-}
-
-function play(){
-    document.getElementById("audio").play();
-}
-
-
-if(isEquipment().isMobile){    //是否是微信，QQ 微博环境             
-   play()
-}
-
+audioAutoPlay('audio');
 </script>
