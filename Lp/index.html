@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萤火虫</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <button class="firefly" onclick="play();">
+        <p>萤火虫</p>
+        <div class="lightning">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </button>
+    <audio id="audio" autoplay loop>
+        <source src="./yhc.mp3" type="audio/mpeg">
+    </audio>
+    <ul class="ff">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+    var l1 = $(".ff li").length
+
+    $(".ff li").each(function(i){
+        $(this).css({
+            left: i * (100/l1) + '%',
+            bottom: randomNum(-20, 10) + '%',
+            animationDuration: randomNum(1, 10) + 's'
+        });
+    })
+    var l2 = $(".lightning li").length
+    console.log(l2)
+    $(".lightning li").each(function(i){
+        $(this).css({
+            left: i * (100/l2) + '%',
+            bottom: randomNum(-20, 10) + '%',
+            animationDuration: randomNum(1, 5) + 's'
+        });
+    })
+
+    function randomNum(max, min) {
+        var num = Math.floor(Math.random() * (max-min+1) + min);
+        return num;
+    }
+
+    function isEquipment(){
+    let UA = navigator.userAgent,
+        isAndroid = /android|adr|linux/gi.test(UA),
+        isIOS = /iphone|ipod|ipad/gi.test(UA) && !isAndroid,
+        isBlackBerry = /BlackBerry/i.test(UA),
+        isWindowPhone = /IEMobile/i.test(UA),
+        isMobile = isAndroid || isIOS || isBlackBerry || isWindowPhone;
+    return{
+        isAndroid: isAndroid,
+        isIOS: isIOS,
+        isMobile: isMobile,
+        isWeixin: /MicroMessenger/gi.test(UA),
+        isQQ: /QQ/gi.test(UA),
+        isPC: !isMobile,
+        isWeibo: /WeiBo/gi.test(UA)
+    }
+}
+
+function play(){
+    document.getElementById("audio").play();
+}
+
+
+if(isEquipment().isMobile){    //是否是微信，QQ 微博环境             
+   play()
+}
+
+</script>

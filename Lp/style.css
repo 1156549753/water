@@ -1,0 +1,91 @@
+@font-face{
+    font-family: 'firefly';
+    src: url('./ZCOOLKuaiLe-Regular.ttf');
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background: url('./yh.bmp') center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+button{
+    outline: none;
+    border: none;
+}
+
+.firefly{
+    width: 180px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(to right,#6eb46e 10%,#55b455);
+    border-radius: 40px;
+    opacity: .88;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.firefly:hover{
+    box-shadow: 0 0 10px #b4ffb4;
+}
+
+.firefly p{
+    line-height: 60px;
+    text-align: center;
+    font-size: 22px;
+    color: #f5dd8f;
+    font-family: firefly;
+}
+
+.lightning{
+    width: 95%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 40px;
+    transition: .8s;
+    overflow: hidden;
+}
+
+.lightning:hover{
+    box-shadow: 0 0 4px #b4ffb4 inset;
+}
+
+.lightning ul{
+    opacity: 1;
+    transition: .8s;
+}
+
+.firefly:hover ul{
+    opacity: .8;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    width: 5px;
+    height: 5px;
+    background: #91fa91;
+    position: absolute;
+    bottom: 10%;
+    border-radius: 50%;
+    opacity: .6;
+    animation: fireflymove infinite linear;
+}
+
+@keyframes fireflymove {
+    100% {
+        bottom: 100%;
+    }
+}
