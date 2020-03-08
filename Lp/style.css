@@ -89,3 +89,15 @@ li{
         bottom: 100%;
     }
 }
+
+.t{
+    text-align: center;
+    font-size: 34px;
+    font-family: firefly;
+    background: linear-gradient(to right, #91fa91, #55b455, #f5dd8f);
+    -webkit-background-clip: text;
+    color: transparent;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+}
